@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react';
 import FavItemsStore from '../store/FavItems';
 import { useState } from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function Navigation() {
     const [showFavDrop, setShowFavDrop] = useState(false);
@@ -18,15 +18,21 @@ function Navigation() {
                     <div className="text-4xl font-thin">MealsApp</div>
                 </Link>
                 <div id="menu-items" className="flex items-center space-x-2 justify-end flex-grow">
-                    <a href="/categories" className="nav-item hover:bg-gray-100 transition-colors duration-200 text-lg font-light py-3 px-8">
-                        All Categories
-                    </a>
-                    <a href="/random-meal" className="nav-item hover:bg-gray-100 transition-colors duration-200 text-lg font-light py-3 px-8">
-                        Random Meal
-                    </a>
-                    <a href="/contact" className="nav-item hover:bg-gray-100 transition-colors duration-200 text-lg font-light py-3 px-8">
-                        Contact Us
-                    </a>
+                    <Link to="/categories">
+                        <div className="nav-item hover:bg-gray-100 transition-colors duration-200 text-lg font-light py-3 px-8">
+                            All Categories
+                    </div>
+                    </Link>
+                    <Link to="/random-meal">
+                        <div className="nav-item hover:bg-gray-100 transition-colors duration-200 text-lg font-light py-3 px-8">
+                            Random Meal
+                        </div>
+                    </Link>
+                    <Link to="/contact">
+                        <div className="nav-item hover:bg-gray-100 transition-colors duration-200 text-lg font-light py-3 px-8">
+                            Contact Us
+                        </div>
+                    </Link>
                     <div id="favs" className="cursor-pointer relative" onClick={controlFavDrop}>
                         <span className="iconify text-2xl text-red-600 z-20" data-icon="carbon:favorite" data-inline="false"></span>
                         <span className="w-5 h-5 text-xs text-red-600 bg-red-100 rounded-full flex items-center justify-center absolute -top-4 -right-4 z-10">{FavItemsStore.favItems.length}</span>

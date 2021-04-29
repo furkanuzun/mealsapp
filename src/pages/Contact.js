@@ -10,6 +10,7 @@ export default function Contact() {
         event.preventDefault();
         if(yourMessage !== null && yourMessage.length > 8) {
             alert('Congrats! Your message was submitted.');
+            document.getElementById("contactForm").reset();
         }
         else {
             setInputHasError(true);
@@ -30,7 +31,7 @@ export default function Contact() {
                         <p className="sub-title">Contact with us for anything.</p>
                     </div>
                     <div className="col-span-2 col-start-2">
-                        <form onSubmit={handleSubmit}>
+                        <form id="contactForm" onSubmit={handleSubmit}>
                             <div className="grid grid-cols-2 gap-5">
                                 <div className="col-span-1">
                                     <input className="w-full focus:outline-none focus:border-gray-300 py-2 px-4 border border-gray-100 rounded" type="text" required placeholder="Name" />
